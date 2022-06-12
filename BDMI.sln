@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDMI.Web", "BDMI.Web\BDMI.Web.csproj", "{190347DB-6B20-4A7D-9623-61586F91649B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDMI.Model", "BDMI.Model\BDMI.Model.csproj", "{9833937F-004B-47CA-BC99-C13B593AD17E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDMI.Dal", "BDMI.Dal\BDMI.Dal.csproj", "{FE0B3B46-88B4-4CF0-A799-8ACE60018E18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{190347DB-6B20-4A7D-9623-61586F91649B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{190347DB-6B20-4A7D-9623-61586F91649B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{190347DB-6B20-4A7D-9623-61586F91649B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{190347DB-6B20-4A7D-9623-61586F91649B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9833937F-004B-47CA-BC99-C13B593AD17E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9833937F-004B-47CA-BC99-C13B593AD17E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9833937F-004B-47CA-BC99-C13B593AD17E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9833937F-004B-47CA-BC99-C13B593AD17E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE0B3B46-88B4-4CF0-A799-8ACE60018E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE0B3B46-88B4-4CF0-A799-8ACE60018E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE0B3B46-88B4-4CF0-A799-8ACE60018E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE0B3B46-88B4-4CF0-A799-8ACE60018E18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {914E630F-0780-49E4-883E-A0D1AD859C50}
+	EndGlobalSection
+EndGlobal
