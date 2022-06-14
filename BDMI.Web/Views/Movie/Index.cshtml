@@ -1,30 +1,77 @@
-﻿@model List<BDMI.Model.Movie>
+﻿@using BDMI.Model
+@using Microsoft.AspNetCore.Identity
+@model List<BDMI.Model.Movie>
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
 
 <h1>Popis filmova</h1>
 
-
+ 
 <table style="margin-top: 20px;" class="table table-condensed">
     <thead>
     <tr>
         <th>Poster</th>
         <th>Title</th>
+        <th>Director</th>
+        <th>Genre</th>
         <th>IMDB Rating</th>
         <th>Year Of Release</th>
     </tr>
     </thead>
     <tbody>
+    <tr>
+        <div class="col">
+            <a asp-action="Create" class="btn btn-success">Add a movie</a>
+        </div>
+    </tr>
     @foreach (var movie in Model)
     {
         <tr>
             <td>
-                <a  target=”_blank” href="@movie.Link" ><img width="100px" src="@movie.Poster"/></a>
+                <a target=”_blank” href="@movie.Link"><img width="100px" src="@movie.Poster"/></a>
             </td>
             <td>
                 @movie.Title
             </td>
+            <td>
+                @movie.Director?.FullName
+            </td>
+            <td>@movie.Genre?.Name</td>
             <td>@movie.ImdbRating</td>
             <td>@movie.YearOfRelease</td>
+            <td><a asp-action="Edit" asp-route-id="@movie.Id">Edit</a>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <td><a asp-controller="Review" asp-action="Create" asp-route-id="@movie.Id">Add a review</a>
+                </td>}
+
+            <td>
+                <input id="id" type="hidden" value="@movie.Id">
+                <button type="button" id="delete" class="btn btn-outline-danger">Delete</button>
+            </td>
         </tr>
     }
     </tbody>
 </table>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script  >  
+    $(document).ready(function () {  
+        $('#delete').click(function () {
+            console.log("Doslo")
+            $.ajax({  
+                url: 'http://localhost:7118/api/movies/ ' + $('#id').val() ,  
+                type: 'DELETE',  
+                success: function (data, textStatus, xhr) {  
+                    console.log(data);  
+                },  
+                error: function (xhr, textStatus, errorThrown) {  
+                    console.log('Error in Operation');  
+                }  
+            });  
+        });  
+    });  
+
+    
+</script>  

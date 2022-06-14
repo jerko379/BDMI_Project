@@ -1,0 +1,40 @@
+﻿@using BDMI.Model
+@using Microsoft.AspNetCore.Identity
+@model List<BDMI.Model.Review>
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+<h1>Review List</h1>
+
+ 
+<table style="margin-top: 20px;" class="table table-condensed">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Movie</th>
+        <th>Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    </tr>
+    @foreach (var review in Model)
+    {
+        <tr>
+            <td><a asp-action="Details" asp-route-id="@review.Id">
+                @review.Title
+                </a>
+            </td>
+            <td>
+                @review.Movie.Title
+            </td>
+            <td>@review.Rating</td>
+              @if (User.Identity.Name == @review.CreatedByUserId)
+            {
+                <td><button asp-action="Edit" asp-route-id="@review.Id" type="button" class="btn btn-info " >Edit</button> </td>
+                <td><button asp-action="Delete" asp-route-id="@review.Id" type="button" class="btn btn-danger ">Delete </button> </td>
+            }
+        </tr>
+    }
+    </tbody>
+</table>

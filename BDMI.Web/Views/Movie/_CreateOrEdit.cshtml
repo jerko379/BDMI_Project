@@ -1,0 +1,45 @@
+﻿@model BDMI.Model.Movie
+
+<div class="form-group">
+	<label class="control-label">Title:</label>
+	<input asp-for="Title" class="form-control" />
+	<span asp-validation-for="Title" class="text-danger"></span>
+</div>
+<div class="form-group">
+	<label class="control-label">Year of release: </label>
+	<input type="number" asp-for="YearOfRelease" class="form-control" />
+	<span asp-validation-for="YearOfRelease" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+	<label class="control-label">Poster Link:</label>
+	<input asp-for="Poster" class="form-control" />
+	<span asp-validation-for="Poster" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+	<label class="control-label">IMDB rating:</label>
+	<input asp-for="ImdbRating" class="form-control" />
+	<span asp-validation-for="ImdbRating" class="text-danger"></span>
+</div>
+<div class="form-group">
+	<label class="control-label">IMDB link: </label>
+	<input asp-for="Link" class="form-control" />
+	<span asp-validation-for="Link" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="control-label">Category: </label>
+    <select asp-for="GenreId" asp-items="ViewBag.PossibleGenres" class="form-control"></select>
+    <span asp-validation-for="GenreId" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label class="control-label">Director: </label>
+    <select asp-for="DirectorId" asp-items="ViewBag.PossibleDirectors" class="form-control"></select>
+    <span asp-validation-for="DirectorId" class="text-danger"></span>
+</div>
+
+
+<div class="form-group">
+	<input type="submit" value="Spremi" class="btn btn-outline-success" />
+</div>

@@ -1,0 +1,58 @@
+﻿@model BDMI.Model.Review
+
+
+@if (Model != null)
+{
+    <ol class="breadcrumb">
+        <li><a asp-action="Index">Reviews</a></li>
+        <li class="active">@Model.Title</li>
+    </ol>
+
+    <div>
+
+        <dl class="dl-horizontal">
+
+            <dt>
+                Title
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt>
+                Movie:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Movie.Title)
+            </dd>
+            <dt>
+                Rating:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Rating)
+            </dd>
+            <dt>
+                Content:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+            <dt>
+                By:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CreatedByUserId)
+            </dd>
+
+        </dl>
+
+
+    </div>
+
+}
+else
+{
+    <div class="alert alert-danger">
+        Wrong review id
+    </div>
+
+}

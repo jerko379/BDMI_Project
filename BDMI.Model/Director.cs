@@ -21,6 +21,8 @@ namespace BDMI.Model
 
         public string Link { get; set; }
 
+        public string FullName => $"{FirstName} {LastName}";
+
 
         public virtual ICollection<Movie>? Movies { get; set; }
 

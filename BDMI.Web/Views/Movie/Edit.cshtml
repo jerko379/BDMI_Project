@@ -1,0 +1,18 @@
+﻿@model BDMI.Model.Movie
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">List of movies</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Editing the movie</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="AverageRating" />
+            <partial name="_CreateOrEdit"/>
+        </form>
+    </div>
+</div>
