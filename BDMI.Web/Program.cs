@@ -1,3 +1,5 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using BDMI.Model;
 using BDMI.Web.Data;
 using Microsoft.AspNetCore.Identity;
@@ -17,11 +19,16 @@ builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireCo
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
+
 builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 {
     googleOptions.ClientId = "983941965378-h88ur87r6ok6353krgq1ieuk58bmrps4.apps.googleusercontent.com";
     googleOptions.ClientSecret = "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";
 });
+
 
 var app = builder.Build();
 

@@ -34,6 +34,11 @@ namespace BDMI.Web.Controllers
         [HttpPost]
         public IActionResult Create(Movie model)
         {
+
+            var validationErrors = ModelState.Values.Where(E => E.Errors.Count > 0)
+                .SelectMany(E => E.Errors)
+                .Select(E => E.ErrorMessage)
+                .ToList();
             if (ModelState.IsValid)
             {
                 this._dbContext.Movies.Add(model);
@@ -73,12 +78,20 @@ namespace BDMI.Web.Controllers
             return View();
         }
 
+        public IActionResult Delete(int id)
+        {
+            var toDelete = _dbContext.Movies.Where(m => m.Id == id).FirstOrDefault();
+            _dbContext.Remove(toDelete);
+            this._dbContext.SaveChanges();
+            return Index();
+        }
+
         private void FillDropdownValues()
         {
             var selectGenres = new List<SelectListItem>();
 
             var listGenre = new SelectListItem();
-            listGenre.Text = "";
+            listGenre.Text = "-- Pick a genre --";
             listGenre.Value = "";
             selectGenres.Add(listGenre);
 
@@ -91,7 +104,7 @@ namespace BDMI.Web.Controllers
             var selectDirector = new List<SelectListItem>();
 
             var listDirector = new SelectListItem();
-            listDirector.Text = "";
+            listDirector.Text = "-- Pick a category --";
             listDirector.Value = "";
             selectDirector.Add(listDirector);
 
@@ -104,5 +117,7 @@ namespace BDMI.Web.Controllers
             ViewBag.PossibleDirectors = selectDirector;
             ViewBag.PossibleGenres = selectGenres;
         }
+
+
     }
 }

@@ -26,13 +26,13 @@
                 </a>
             </td>
             <td>
-                @review.Movie.Title
+                @review.Movie?.Title
             </td>
             <td>@review.Rating</td>
               @if (User.Identity.Name == @review.CreatedByUserId)
             {
-                <td><button asp-action="Edit" asp-route-id="@review.Id" type="button" class="btn btn-info " >Edit</button> </td>
-                <td><button asp-action="Delete" asp-route-id="@review.Id" type="button" class="btn btn-danger ">Delete </button> </td>
+                <td><a asp-action="Edit" asp-route-id="@review.Id" type="button" class="btn btn-info " >Edit</a> </td>
+                <td><a asp-action="Delete" asp-route-id="@review.Id" type="button" class="btn btn-danger ">Delete </a> </td>
             }
         </tr>
     }

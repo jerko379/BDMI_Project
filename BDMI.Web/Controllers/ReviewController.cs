@@ -49,7 +49,7 @@ namespace BDMI.Web.Controllers
             if (ModelState.IsValid)
             {
                 Movie movie = this._dbContext.Movies.Where(m => m.Id == model.MovieId).FirstOrDefault();
-                model.Movie= movie;
+                model.Movie = movie;
                 this._dbContext.Reviews.Add(model);
                 this._dbContext.SaveChanges();
 

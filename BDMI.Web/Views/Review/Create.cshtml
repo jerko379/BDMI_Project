@@ -21,7 +21,7 @@
         <form asp-action="Create">
             <partial name="_CreateOrEdit" />
             <div class="form-group">
-                <input type="hidden"  value="@ViewBag.MovieId" asp-for="MovieId" />
+                <input type="hidden" value="@ViewBag.MovieId" asp-for="MovieId"/>
                 <input type="hidden" value="@User.Identity.Name" asp-for="CreatedByUserId"/>
             </div>
         </form>

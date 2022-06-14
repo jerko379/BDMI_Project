@@ -5,7 +5,7 @@
 @inject UserManager<AppUser> UserManager
 
 
-<h1>Popis filmova</h1>
+<h1>Movie List</h1>
 
  
 <table style="margin-top: 20px;" class="table table-condensed">
@@ -34,22 +34,21 @@
             <td>
                 @movie.Title
             </td>
-            <td>
-                @movie.Director?.FullName
-            </td>
+            <td class="text-decoration-none">
+                <a target=”_blank” href="@movie.Director.Link"> @movie.Director.FullName </a>            </td>
             <td>@movie.Genre?.Name</td>
             <td>@movie.ImdbRating</td>
             <td>@movie.YearOfRelease</td>
-            <td><a asp-action="Edit" asp-route-id="@movie.Id">Edit</a>
+            <td><a class="btn btn-warning" asp-action="Edit" asp-route-id="@movie.Id">Edit</a>
             @if (SignInManager.IsSignedIn(User))
             {
-                <td><a asp-controller="Review" asp-action="Create" asp-route-id="@movie.Id">Add a review</a>
+                <td><a class="btn btn-info" asp-controller="Review" asp-action="Create" asp-route-movieid="@movie.Id">Add a review</a>
                 </td>}
 
-            <td>
-                <input id="id" type="hidden" value="@movie.Id">
-                <button type="button" id="delete" class="btn btn-outline-danger">Delete</button>
-            </td>
+            <td><a asp-controller="Movie" asp-action="Delete" asp-route-id="@movie.Id" type="button" class="btn btn-danger ">Delete </a> </td>
+
+            
+
         </tr>
     }
     </tbody>
