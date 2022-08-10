@@ -25,8 +25,8 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 
 builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 {
-    googleOptions.ClientId = "983941965378-h88ur87r6ok6353krgq1ieuk58bmrps4.apps.googleusercontent.com";
-    googleOptions.ClientSecret = "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";
+    googleOptions.ClientId = "****";
+    googleOptions.ClientSecret = "***";
 });
 
 
